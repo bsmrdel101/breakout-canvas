@@ -28,10 +28,15 @@ document.addEventListener('keyup', (e: Event) => {
   keysPressed[(e as KeyboardEvent).key] = false;
 });
 
+let score = 0;
+
+export const addScore = () => {
+  score += 1;
+}
 
 const level = new Level(2, 10, 4);
 const paddle = new Paddle(130, 138, 35, 3, 'black');
-const ball = new Ball(150, 120, 3, 'blue', 2, paddle);
+export const ball = new Ball(150, 120, 3, 'blue', 2, paddle);
 
 const drawFrame = () => {
   pxCtx.clearRect(0, 0, pxCanvas.width, pxCanvas.height);

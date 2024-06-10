@@ -9,7 +9,7 @@ export class Ball {
   color: string;
   mass: number;
   hasLaunched = false;
-  private vel: Vec2 = { x: 0, y: 0 };
+  vel: Vec2 = { x: 0, y: 0 };
   private paddle: Paddle;
 
   constructor(x: number, y: number, radius: number, color: string, mass: number, paddle: Paddle) {
@@ -27,7 +27,7 @@ export class Ball {
     this.y = this.paddle.y - this.radius;
     if (keysPressed[' ']) {
       this.hasLaunched = true;
-      this.vel = { x: Math.random() * (2 - -2) + -2, y: -1 };
+      this.vel = { x: Math.random() * (2 - -2) + -2, y: 1 };
     }
   };
 

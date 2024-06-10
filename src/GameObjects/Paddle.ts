@@ -25,8 +25,17 @@ export class Paddle {
     }
   }
 
+  private handleCollision() {
+    if (this.x < 0) {
+      this.x = 0;
+    } else if (this.x + this.w > 300) {
+      this.x = 300 - this.w;
+    }
+  }
+
   draw() {
     this.handleKeydown();
+    this.handleCollision();
     pxCtx.fillStyle = this.color;
     pxCtx.fillRect(this.x, this.y, this.w, this.h);
   }
