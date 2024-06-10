@@ -1,5 +1,5 @@
 import { Ball } from "./GameObjects/Ball";
-import { Block } from "./GameObjects/Block";
+import { Level } from "./GameObjects/Level";
 import { Paddle } from "./GameObjects/Paddle";
 
 export let bgCanvas: HTMLCanvasElement;
@@ -29,13 +29,13 @@ document.addEventListener('keyup', (e: Event) => {
 });
 
 
-const block = new Block(10, 10, 20, 20, 'red');
+const level = new Level(2, 10, 4);
 const paddle = new Paddle(130, 138, 35, 3, 'black');
 const ball = new Ball(150, 120, 3, 'blue', 2, paddle);
 
 const drawFrame = () => {
   pxCtx.clearRect(0, 0, pxCanvas.width, pxCanvas.height);
-  block.draw();
+  level.draw();
   ball.draw();
   paddle.draw();
   window.requestAnimationFrame(drawFrame);
