@@ -7,6 +7,7 @@ export class Ball {
   radius: number;
   color: string;
   mass: number;
+  hasGravity = false;
   private vel: Vec2 = { x: 0, y: 1 };
 
   constructor(x: number, y: number, radius: number, color: string, mass: number) {
@@ -18,6 +19,7 @@ export class Ball {
   }
 
   private applyVelocity() {
+    if (!this.hasGravity) return;
     this.x += this.vel.x * this.mass;
     this.y += this.vel.y * this.mass;
   }

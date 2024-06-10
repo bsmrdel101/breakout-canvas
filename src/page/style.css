@@ -23,7 +23,7 @@ body {
 canvas {
   display: block;
   width: 80rem;
-  image-rendering: pixelated;
+  image-rendering: crisp-edges;
   position: absolute;
   inset: 0;
   margin: auto;
@@ -32,6 +32,10 @@ canvas {
 #bg-canvas {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: var(--canvas-bg);
+}
+
+#sm-canvas {
+  image-rendering: crisp-edges;
 }
 
 @media (max-width: 1050px) {
