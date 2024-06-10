@@ -23,7 +23,7 @@ body {
 canvas {
   display: block;
   width: 80rem;
-  image-rendering: crisp-edges;
+  image-rendering: pixelated;
   position: absolute;
   inset: 0;
   margin: auto;
