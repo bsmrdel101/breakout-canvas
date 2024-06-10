@@ -37,8 +37,30 @@ export class Ball {
     this.y += this.vel.y * this.mass;
   }
 
+  private handleCollision() {
+    // Paddle collision
+    if (this.y + this.radius >= this.paddle.y && this.x >= this.paddle.x && this.x <= this.paddle.x + this.paddle.w) {
+      this.vel.y = -this.vel.y;
+      this.vel.x = (this.x - (this.paddle.x + this.paddle.w / 2)) / 10;
+    }
+
+    // Wall collision
+    if (this.y - this.radius <= 0) {
+      this.vel.y = -this.vel.y;
+    } else if (this.x - this.radius <= 0 || this.x + this.radius >= pxCtx.canvas.width) {
+      this.vel.x = -this.vel.x;
+    } else if (this.y + this.radius >= pxCtx.canvas.height) {
+      this.handleDeath();
+    }
+  };
+
+  private handleDeath() {
+    this.hasLaunched = false;
+  }
+
   draw() {
     this.handleBallLaunch();
+    this.handleCollision();
     pxCtx.beginPath();
     pxCtx.fillStyle = this.color;
     pxCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
